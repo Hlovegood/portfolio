@@ -1,0 +1,29 @@
+.hero-div{
+display: flex;
+width: 30%;
+height: 704px;
+padding: 157px 139px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 0px 0px 360px 360px;
+background: linear-gradient(0deg, rgba(255, 89, 0, 0.00) 0%, rgba(255, 200, 21, 0.23) 100%); 
+z-index: 99;
+margin: 0 auto;
+font-size: 32px;
+border: 3px solid #FFB574;
+border-top-width: 0;
+}
+
+.hero-text{
+    color: #FFF;
+    font-family: Panchang;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 180%; 
+    letter-spacing: 7.68px;
+    margin-bottom: 24px;
+    text-align: center;
+}
