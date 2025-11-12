@@ -12,4 +12,23 @@
     align-items: center;
     width: 100%;
     gap: 24px;
+    z-index: 10;
+}
+
+.Projects-Holder{
+        display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8%;
+}
+
+.projects-up, .projects-down {
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+    gap: 24px;
+    flex-direction: row;
+    margin-bottom: 16px;
 }

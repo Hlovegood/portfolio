@@ -5,7 +5,9 @@ import DotGrid from '../animation/DotGrid ';
 import Nav from '../components/nav';
 import Container from '../common/CategoryCont';
 import Pill from '../common/Pill';
-
+import ProjectHolder from '../common/ProjectHolder';
+import Mockup1 from '../assets/Mockups/Edita-Web.png'
+import Footer from '../components/footer'
 const Projects = () => {
     return ( <>
                 <div style={{ position: 'relative', width: '100%', minHeight: '100vh' }}>
@@ -49,7 +51,22 @@ const Projects = () => {
 
                     <div className='Projects-Holder'>
 
+                        <div className='projects-up'>
+                            <ProjectHolder 
+                            ProjectIMG={Mockup1} 
+                             ProjectTitle={"Egyptian Food Brand Website"} 
+                             ProjectDate={"2024"} 
+                             ProjectCatg1={"Code"} 
+                             ProjectCatg2={"Design"} 
+                             Project={"/details"}/>
+                            <ProjectHolder />
+                            <ProjectHolder />
+
+                        </div>
+                        
                     </div>
+
+                    <Footer/>
 
                 </main>
                 </div>

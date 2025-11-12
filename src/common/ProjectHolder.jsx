@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const ProjectHolder = (props) => {
     return ( <>
         <article className="project">
-                    <Link class="blog-div">
+                    <Link to={props.Project} class="blog-div">
                         <figure className="blog-pic">
                             <img src={props.ProjectIMG} alt="" />
                         </figure>
@@ -16,7 +16,11 @@ const ProjectHolder = (props) => {
                         </time>
                         <div className="category-container">
                             <span className="category">
-                                {props.ProjectCatg}
+                                {props.ProjectCatg1}
+                            </span>
+
+                            <span className="category">
+                                {props.ProjectCatg2}
                             </span>
                         </div>
                     </Link>
