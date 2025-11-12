@@ -78,8 +78,8 @@
   font-family: Panchang;
   color: white;
   border:1px solid #FFB574;
-  padding: 8px;
+  padding: 16px;
   border-radius: 20px;
-    background: linear-gradient(180deg, rgba(255, 89, 0, 0.00) 0%, rgba(193, 255, 21, 0.23) 100%);
+    background: linear-gradient(180deg, rgba(255, 89, 0, 0.941) 0%, rgb(255, 193, 21) 100%);
 
 }

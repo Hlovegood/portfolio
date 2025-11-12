@@ -14,6 +14,7 @@ import Project4 from '../assets/Project 4.png'
 import Project5 from '../assets/Project 5.png'
 import Project6 from '../assets/Project 6.png'
 import TiltedCard from '../animation/TiltedCard';
+import Footer from '../components/footer'
 const Home = () => {
     return (
         
@@ -181,8 +182,8 @@ const Home = () => {
             </div>
 
                     </div>
-
-
+                {/* Footer */}
+                <Footer/>
 
 
                 </main>
