@@ -5,19 +5,19 @@ const nav = () => {
     return ( <>
      <nav>
         <ul>
-            <Link class="nav-link">
+            <Link className="nav-link">
                 Work
             </ Link>
 
-            <Link class="nav-link">
+            <Link className="nav-link">
                 About
             </Link>
 
-            <Link class="nav-link">
+            <Link className="nav-link">
                 Contact
             </Link>
             
-            <Link class="nav-link">
+            <Link className="nav-link">
                 Blog
             </Link>
         </ul>

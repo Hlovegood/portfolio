@@ -1,0 +1,23 @@
+.category{
+    display: inline-flex;
+    padding: 0.4rem 0.8rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.75rem;
+    border: 1px solid #FFB574;
+    background: rgba(0, 0, 0, 0.20);
+    font-family: Panchang;
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+}
+
+.category:hover {
+    background: rgba(255, 181, 116, 0.1);
+}
+
+.category-txt{
+    color: white;
+    text-decoration: none;
+}

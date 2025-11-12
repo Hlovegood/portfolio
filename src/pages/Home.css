@@ -26,3 +26,60 @@ border-top-width: 0;
     margin-bottom: 24px;
     text-align: center;
 }
+
+main{
+    margin: 0;
+}
+
+.showreel{
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px;
+align-self: stretch;
+font-size: 32px;
+z-index: 98;
+}
+
+.video{
+    height: 100vh;
+    width: 100%;
+}
+
+.Pill-cont{
+display: flex;
+align-items: center;
+gap: 48px;
+justify-content: center;
+padding: 24px;
+}
+
+.custom-scroll-text{
+    color: white;
+    padding: 24px;
+}
+
+.title{
+    font-family: Panchang;
+    color: white;
+    font-size: 2.25rem;
+    margin-bottom: 2%;
+}
+
+.projects-cont{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 48px;
+    width: 100%;
+}
+
+.Catg-Cont{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 24px;
+}
