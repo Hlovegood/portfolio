@@ -5,9 +5,13 @@ const nav = () => {
     return ( <>
      <nav>
         <ul>
+            <Link to={"/"} className="nav-link">
+                Home
+            </ Link>
+
             <Link className="nav-link">
                 Work
-            </ Link>
+            </Link>
 
             <Link className="nav-link">
                 About
@@ -17,9 +21,7 @@ const nav = () => {
                 Contact
             </Link>
             
-            <Link className="nav-link">
-                Blog
-            </Link>
+
         </ul>
 
     </nav>

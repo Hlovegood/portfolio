@@ -11,6 +11,8 @@ border: 3px solid #FFB574;
 border-radius: 20px 20px 0 0;
 box-sizing: border-box;
 border-bottom-width: 0;
+z-index: 10;
+position: relative;
 }
 
 .footer-logo{

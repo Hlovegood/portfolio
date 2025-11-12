@@ -4,14 +4,28 @@
     text-align: center;
 }
 
+.CaseStudy{
+    z-index: 10;
+    position: relative;
+        width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
 .case-hero-img {
-    width: 100%;
     height: 60vh;
     margin: 0 0 2%;
     background-size: cover;
     background-position: center;
     border-radius: 2.5rem;
     border: 2px solid #FFB574;
+}
+.case-hero-img[data-project="egyptian-food"] {
+    background-image: url(../assets//Mockups/Edita\ Website.png);
 }
 
 .case-hero-video {
@@ -24,13 +38,15 @@
 }
 
 .case-title {
-    font-family: akony;
+    font-family: Panchang;
     font-size: 3rem;
     margin: 0 0 1%;
+    color: white;
+    font-weight: 700;
 }
 
 .case-subtitle {
-    font-family: text;
+    font-family: Panchang;
     font-size: 1.5rem;
     margin: 0 0 3%;
     color: #FFB574;
@@ -67,8 +83,9 @@
 }
 
 .meta-value {
-    font-family: text;
+    font-family: Panchang;
     font-size: 1rem;
+    font-weight: 400;
 }
 
 .case-content {
@@ -80,6 +97,7 @@
 
 .case-section {
     margin-bottom: 5%;
+    padding: 24px;
 }
 
 .section-title {
@@ -90,9 +108,10 @@
 }
 
 .section-text {
-    font-family: text;
+    font-family: Panchang;
     font-size: 1.125rem;
     line-height: 1.6;
+    color: white;
 }
 
 .case-grid {
@@ -122,21 +141,23 @@
 }
 
 .process-title {
-    font-family: akony;
+    font-family: Panchang;
     font-size: 1.25rem;
     margin: 16px 0;
+    color: white;
 }
 
 .process-text {
-    font-family: text;
+    font-family: Panchang;
     font-size: 1rem;
     line-height: 1.5;
+    color: white;
 }
 
 .deliverables-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 3%;
+    gap: 24px;
 }
 
 .deliverable-item {
@@ -147,16 +168,17 @@
 }
 
 .deliverable-title {
-    font-family: akony;
+    font-family: Panchang;
     font-size: 1.25rem;
     margin: 0 0 16px;
     color: #FFB574;
 }
 
 .deliverable-text {
-    font-family: text;
+    font-family: Panchang;
     font-size: 1rem;
     line-height: 1.5;
+    color: white;
 }
 
 .results-grid {
@@ -178,13 +200,15 @@
 
 .result-number {
     display: block;
-    font-family: akony;
+    font-family: Panchang;
     font-size: 3rem;
     color: #FFB574;
     margin-bottom: 8px;
+    font-weight: 700;
 }
 
 .result-label {
     font-family: Panchang;
     font-size: 1rem;
+    color: white;
 }
