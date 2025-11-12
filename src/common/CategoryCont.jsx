@@ -4,7 +4,10 @@ const Container = (props) => {
     return ( <>
     <div className='hero-div hero-text'>
         {props.title}
-        {props.Subtitle}
+        <p>
+         {props.Subtitle}   
+        </p>
+        
         <img src={props.img} alt="" />
     </div>
     
