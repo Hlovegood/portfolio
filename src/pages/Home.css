@@ -146,4 +146,8 @@ flex-direction: row-reverse;
 
 .about-filling{
     padding: 48px;
+     border-radius: 20px;
+    background: linear-gradient(180deg, rgba(133, 46, 0, 0.29) 0%, rgba(159, 123, 2, 0.598) 100%);
+  border:1px solid #FFB574;
+
 }
