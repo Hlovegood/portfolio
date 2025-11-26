@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import { useParams } from "react-router-dom";
+import CaseStudiesData from "../Data/CaseStudiesData";
 import './CaseStudyCont.css'
 const CaseStudyCont = (props) => {
+
+
     return ( <div className='CaseStudy'>
      <section className="case-hero">
             <figure className="case-hero-img" data-project="egyptian-food">

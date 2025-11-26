@@ -62,3 +62,11 @@ position: relative;
     color: white;
     font-size: 16px;
 }
+
+/* Hide footer on tablet and mobile responsive views */
+@media (max-width: 1024px) {
+    .footer {
+        display: none !important;
+        visibility: hidden !important;
+    }
+}

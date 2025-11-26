@@ -14,6 +14,8 @@
     align-content: center;
     flex-wrap: wrap;
     flex-direction: column;
+    max-width: 1400px;
+    margin: 8% auto 0;
 }
 
 .case-hero-img {
@@ -211,4 +213,85 @@
     font-family: Panchang;
     font-size: 1rem;
     color: white;
+}
+
+
+@media (max-width: 1024px) {
+    .case-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        width: 88vw !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
+        align-items: center !important;
+    }
+
+    .process-steps {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.25rem !important;
+        width: 88vw !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
+        align-items: center !important;
+    }
+
+    .case-hero-img, .case-hero-video {
+        height: 50vh !important;
+        width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Headline sizes for tablet */
+    .case-title, .section-title, .process-title, .case-subtitle {
+        font-size: 24px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .case-grid, .deliverables-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.25rem !important;
+        width: 92vw !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
+        align-items: center !important;
+    }
+
+    .process-steps {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+        width: 92vw !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
+        align-items: center !important;
+    }
+
+    .case-meta {
+        flex-direction: column !important;
+        gap: 12px !important;
+        text-align: center !important;
+    }
+
+    .case-hero-img, .case-hero-video {
+        height: 40vh !important;
+        width: 100% !important;
+    }
+
+    /* Headline sizes for smaller screens */
+    .case-title, .section-title, .process-title, .case-subtitle {
+        text-align: center !important;
+        font-size: 24px !important;
+    }
+
+    .section-text{
+        text-align: center;
+        font-size: 16px !important;
+    }
+
+
 }

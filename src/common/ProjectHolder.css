@@ -50,6 +50,15 @@
 
 }
 
+/* Responsive headline sizing for project cards */
+@media (max-width: 1024px) {
+    .blog-head { font-size: 24px !important; text-align: center !important; }
+}
+
+@media (max-width: 414px) {
+    .blog-head { font-size: 24px !important; text-align: center !important; }
+}
+
 .category-container{
     display: flex;
     flex-direction: row;

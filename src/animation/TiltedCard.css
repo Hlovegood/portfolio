@@ -83,3 +83,9 @@
     background: linear-gradient(180deg, rgba(255, 89, 0, 0.941) 0%, rgb(255, 193, 21) 100%);
 
 }
+
+@media (max-width: 640px) {
+  .tilted-card-img {
+padding: 24px 0 0 0;
+  }
+}

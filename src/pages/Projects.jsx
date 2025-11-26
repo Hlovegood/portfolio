@@ -24,7 +24,7 @@ const Projects = () => {
                 <DotGrid
                     dotSize={5}
                     gap={15}
-                    baseColor="#ffb70069"
+                    baseColor="#3b2b0269"
                     activeColor="#ffffffff"
                     proximity={80}
                     shockRadius={150}
@@ -58,7 +58,7 @@ const Projects = () => {
                              ProjectDate={"2024"} 
                              ProjectCatg1={"Code"} 
                              ProjectCatg2={"Design"} 
-                             Project={"/details"}/>
+                             Project={"egyptian-food"}/>
                             <ProjectHolder />
                             <ProjectHolder />
 

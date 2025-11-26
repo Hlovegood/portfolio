@@ -151,3 +151,170 @@ flex-direction: row-reverse;
   border:1px solid #FFB574;
 
 }
+
+.about-filling p{
+    font-family: Panchang;
+    color: white;
+    font-size: 16px;
+
+}
+
+/* Single mobile breakpoint at 414px: use vw/% widths and vh heights, stack sections vertically */
+@media (max-width: 414px) {
+    .hero-div {
+        width: 92vw !important;
+        padding: 8vw 5vw !important;
+        border-radius: 6vw 6vw 10vw 10vw !important;
+        font-size: 5.5vw !important;
+    }
+
+    .hero-text {
+        font-size: 7vw !important;
+        line-height: 1.2 !important;
+        letter-spacing: 1.2vw !important;
+    }
+
+    .showreel { gap: 3.5vw !important; }
+
+    .video {
+        height: 45vh !important;
+        width: 100% !important;
+    }
+
+    .Pill-cont {
+        flex-direction: column !important;
+        gap: 3.5vw !important;
+        padding: 3.5vw !important;
+        width: 92vw !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .projects-cont {
+        width: 92vw !important;
+        gap: 4vw !important;
+        margin-top: 4vh !important;
+        padding: 2.5vw !important;
+    }
+
+    /* center content and text on mobile */
+    .hero-div, .projects-cont, .Pill-cont, .Catg-Cont, .projects-up, .projects-down, .About, .about-filling {
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+
+    .Catg-Cont {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        gap: 3vw !important;
+        overflow-x: hidden !important;
+        padding-bottom: 1vw !important;
+        width: 92vw !important;
+        justify-content: center !important;
+    }
+
+    .projects-up, .projects-down {
+        flex-direction: column !important;
+        gap: 4vw !important;
+        align-items: stretch !important;
+        width: 100% !important;
+    }
+
+    .project-1-dwn, .project-2-dwn, .project {
+        width: 100% !important;
+        height: auto !important;
+        padding: 3.5vw !important;
+    }
+
+    .About {
+        padding: 4vw !important;
+        flex-direction: column !important;
+        gap: 3.5vw !important;
+        align-items: center !important;
+    }
+
+    .About-head { font-size: 8vw !important; }
+
+    .about-filling { padding: 4vw !important; width: 92vw !important; }
+
+    /* Headline sizes in responsive view */
+    .hero-text, .title, .About-head {
+        font-size: 24px !important;
+    }
+
+    /* Hide the full projects grid on small screens, keep categories visible */
+    .projects-holder1 {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+
+/* Tablet breakpoint: stack horizontally-aligned sections vertically and scale with vw/vh */
+@media (max-width: 1024px) and (min-width: 415px) {
+    .hero-div {
+        width: 76vw !important;
+        padding: 6.5vw 5vw !important;
+        border-radius: 4.5vw 4.5vw 8vw 8vw !important;
+        font-size: 5vw !important;
+    }
+
+    .hero-text {
+        font-size: 6.5vw !important;
+        line-height: 1.25 !important;
+        letter-spacing: 1vw !important;
+    }
+
+    .video { height: 50vh !important; }
+
+    .Pill-cont { width: 88vw !important; padding: 3.5vw !important; gap: 3.5vw !important; }
+
+    .projects-cont { width: 88vw !important; gap: 3.5vw !important; margin-top: 3vh !important; }
+
+    .Catg-Cont { gap: 2.5vw !important; }
+
+    /* Ensure category container wraps on tablet */
+    .Catg-Cont {
+        flex-wrap: wrap !important;
+        width: 88vw !important;
+        justify-content: center !important;
+        overflow-x: hidden !important;
+        gap: 2.5vw !important;
+    }
+
+    .projects-up, .projects-down { flex-direction: column !important; gap: 3.5vw !important; align-items: stretch !important; }
+
+    .project-1-dwn, .project-2-dwn, .project { width: 100% !important; height: auto !important; padding: 3vw !important; }
+
+    .About { padding: 3.5vw !important; flex-direction: column !important; gap: 3.5vw !important; }
+
+    /* center content and text on tablet */
+    .hero-div, .projects-cont, .Pill-cont, .Catg-Cont, .projects-up, .projects-down, .About, .about-filling {
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+
+    .About-head { font-size: 6.5vw !important; }
+
+    .about-filling { padding: 3.5vw !important; width: 88vw !important; }
+
+    /* Headline sizes in tablet responsive view */
+    .hero-text, .title, .About-head {
+        font-size: 24px !important;
+    }
+
+    /* Hide the full projects grid on tablet, keep category pills visible */
+    .projects-holder1 {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
