@@ -1,0 +1,178 @@
+.about-main {
+width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 48px 24px;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.about-title {
+    font-family: akony;
+    font-size: 48px;
+    color: white;
+    margin-bottom: 48px;
+}
+
+.about-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+}
+
+.stat-item {
+    font-family: akony;
+    font-size: 16px;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 24px;
+    border: 1px solid #FFB574;
+    background: rgba(255, 181, 116, 0.1);
+}
+
+.about-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 64px;
+    margin-bottom: 64px;
+}
+
+.intro-content {
+    width: 60%;
+    height: 50vh;
+    padding: 32px;
+    border-radius: 24px;
+    background: rgba(43, 27, 23, 0.9);
+    border: 1px solid #FFB574;
+    color: white;
+    font-family: panchang;
+}
+
+.profile-image {
+    width: 40%;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid #FFB574;
+}
+
+.about-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.section-heading {
+    font-family: akony;
+    font-size: 24px;
+    color: #FFB574;
+    margin-bottom: 24px;
+}
+
+.skills-section, .tools-section, .education-section, .philosophy-section {
+    padding: 32px;
+    border-radius: 24px;
+    background: rgba(43, 27, 23, 0.9);
+    border: 1px solid #FFB574;
+    margin-bottom: 48px;
+    width: 100%;
+}
+
+.skills-grid, .tools-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.skill-tag, .tool-tag {
+    font-family: panchang;
+    font-size: 16px;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 16px;
+    border: 1px solid #FFB574;
+    background: rgba(255, 181, 116, 0.1);
+}
+
+.skills-description {
+    font-family: panchang;
+    font-size: 16px;
+    line-height: 1.6;
+    color: white;
+}
+
+.education-content {
+    color: white;
+}
+
+.university {
+    font-family: akony;
+    font-size: 20px;
+    margin-bottom: 16px;
+    color: #FFB574;
+}
+
+.faculty, .major {
+    font-family: panchang;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.philosophy-content {
+    color: white;
+    font-family: panchang;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.philosophy-content p {
+    margin-bottom: 16px;
+}
+
+
+.floating-contact {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 64px;
+    height: 64px;
+    background: rgba(43, 27, 23, 0.9);
+    border: 1px solid #FFB574;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Tablet: stack intro and stats, center and scale */
+@media (max-width: 1024px) {
+    .about-main { width: 88vw !important; padding: 3.5vw !important; }
+    .about-title { font-size: 32px !important; }
+    .about-stats { flex-direction: column !important; gap: 2.5vw !important; }
+    .about-intro { flex-direction: column !important; gap: 3.5vw !important; }
+    .intro-content { width: 100% !important; padding: 3.5vw !important; }
+    .profile-image { width: 100% !important; max-width: 320px !important; margin-left: auto !important; margin-right: auto !important; }
+    .section-heading { font-size: 20px !important; }
+}
+
+/* Mobile: use vw widths and stack everything vertically */
+@media (max-width: 414px) {
+    .about-main { width: 92vw !important; padding: 4vw !important; }
+    .about-title { font-size: 24px !important; }
+    .about-stats { flex-direction: column !important; gap: 3.5vw !important; }
+    .about-intro { flex-direction: column !important; gap: 4vw !important; }
+    .intro-content { width: 100% !important; padding: 4vw !important; border-radius: 16px !important; }
+    .profile-image { width: 92vw !important; max-width: 92vw !important; margin-left: auto !important; margin-right: auto !important; }
+    .skills-grid, .tools-grid { flex-direction: row !important; gap: 3vw !important; }
+    .skill-tag, .tool-tag { padding: 6px 12px !important; font-size: 14px !important; }
+    .floating-contact { display: none !important; }
+}

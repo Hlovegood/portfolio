@@ -9,15 +9,11 @@ const nav = () => {
                 Home
             </ Link>
 
-            <Link className="nav-link">
-                Work
-            </Link>
-
-            <Link className="nav-link">
+            <Link to={"/about"} className="nav-link">
                 About
             </Link>
 
-            <Link className="nav-link">
+            <Link to={"/contact"} className="nav-link">
                 Contact
             </Link>
             

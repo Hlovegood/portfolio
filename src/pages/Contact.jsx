@@ -1,0 +1,116 @@
+import React from 'react';
+import './Contact.css';
+import Nav from '../components/nav';
+import DotGrid from '../animation/DotGrid ';
+const Contact = () => {
+    return ( <>
+
+         <div style={{ position: 'relative', width: '100%', minHeight: '100vh' }}>
+
+            <div style={{ 
+                position: 'fixed', 
+                top: 0, 
+                left: 0, 
+                width: '100%', 
+                height: '100vh',
+                zIndex: 0,
+                pointerEvents: 'none' 
+            }}>
+                <DotGrid
+                    dotSize={5}
+                    gap={15}
+                    baseColor="#3b2b0269"
+                    activeColor="#ffffffff"
+                    proximity={80}
+                    shockRadius={150}
+                    shockStrength={5}
+                    resistance={150}
+                    returnDuration={2.5}
+                />
+            </div>
+
+             <div style={{ position: 'relative', zIndex: 10 , height: '100vh' }}>
+                <Nav />
+                
+                <main className="contact-main">
+                     <header className="contact-header">
+            <div className="contact-title-wrapper">
+                <h1 className="contact-title">Get in Touch</h1>
+            </div>
+            <p className="contact-intro">Have a project in mind or want to collaborate? I'd love to hear from you. Send me a message and let's create something amazing together.</p>
+        </header>
+
+        <div className="contact-content">
+            <section className="message-section">
+                <h2 className="section-title">Send a Message</h2>
+                <form className="contact-form">
+                    <div className="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="John Doe"/>
+                    </div>
+                    <div className="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="john@example.com"/>
+                    </div>
+                    <div className="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" placeholder="Project Inquiry"/>
+                    </div>
+                    <div className="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Tell me about your project..."></textarea>
+                    </div>
+                    <button type="submit" className="submit-btn">Send Message</button>
+                </form>
+            </section>
+
+            <aside className="contact-info">
+                <section className="info-section">
+                    <h2 className="section-title">Contact Information</h2>
+                    <div className="info-list">
+                        <div className="info-item">
+                            <span className="info-icon">📧</span>
+                            <p>hlovegood14@gmail.com</p>
+                        </div>
+                        <div className="info-item">
+                            <span className="info-icon">📱</span>
+                            <p>+20 01032049907</p>
+                        </div>
+                        <div className="info-item">
+                            <span className="info-icon">📍</span>
+                            <p>Cairo, Egypt</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="social-section">
+                    <h2 className="section-title">Social Media</h2>
+                    <div className="social-links">
+                        <p className='social-link'>LinkedIn</p>
+                        <p className='social-link'>Instagram</p>
+                        <p className='social-link'>Behnace</p>
+                    </div>
+                </section>
+
+                <section className="availability-section">
+                    <h2 className="section-title">Availability</h2>
+                    <p className="availability-text">Currently open for freelance projects and collaborations.</p>
+                    <p className="response-time">Response time: 24-48 hours.</p>
+                </section>
+            </aside>
+        </div>
+
+        <section className="cta-section">
+            <h2 className="cta-title">Let's Create Something Amazing</h2>
+            <p className="cta-text">Whether you have a project in mind, need design consultation, or just want to say hello, I'm always excited to connect with fellow creatives and potential clients.</p>
+        </section>
+                </main>
+            </div>
+            </div>
+    
+       
+
+    </> );
+}
+ 
+export default Contact;
