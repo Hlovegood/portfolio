@@ -16,6 +16,7 @@ import Project5 from "../assets/Project 5.png";
 import Project6 from "../assets/Project 6.png";
 import TiltedCard from "../animation/TiltedCard";
 import Footer from "../components/footer";
+import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <>
@@ -105,7 +106,7 @@ const Home = () => {
               <div className="Catg-Cont">
                 <CatgPill Page="/projects" Category={"UX/UI"} />
                 <CatgPill Category={"3D Modeling"} />
-                <CatgPill Category={"Video Editor"} />
+                <CatgPill Category={"Digital Design"} />
                 <CatgPill Category={"Front-End Dev."} />
                 <CatgPill Category={"Photography"} />
                 <CatgPill Category={"Augmented Reality"} />
@@ -117,9 +118,9 @@ const Home = () => {
                     <img src={Project1} alt="" />
                   </article>
 
-                  <article class="project">
+                  <Link to={"/projects/e-sports"} class="project">
                     <img src={Project2} alt="" />
-                  </article>
+                  </Link>
 
                   <article class="project">
                     <img src={Project3} alt="" />
