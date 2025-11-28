@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
-import { useParams } from "react-router-dom";
-import CaseStudiesData from "../Data/CaseStudiesData";
+import React, { useState } from 'react';
 import './CaseStudyCont.css'
 const CaseStudyCont = (props) => {
+    const [modalImg, setModalImg] = useState(null);
+    const gallery = props.CaseGallery || [];
+
+    const openModal = (img) => setModalImg(img);
+    const closeModal = (e) => { e && e.stopPropagation(); setModalImg(null); };
 
 
     return ( <div className='CaseStudy'>
@@ -94,6 +97,20 @@ const CaseStudyCont = (props) => {
                 </div>
             </article>
 
+
+            {gallery.length > 0 && (
+            <article className="case-section">
+                <h2 className="section-title">Gallery</h2>
+                <div className="gallery-grid">
+                    {gallery.map((g, i) => (
+                        <div className="gallery-item" key={i}>
+                            <img src={g} alt={`Gallery ${i + 1}`} onClick={() => openModal(g)} />
+                        </div>
+                    ))}
+                </div>
+            </article>
+            )}
+
             <article className="case-section">
                 <h2 className="section-title">Impact & Results</h2>
                 <div className="results-grid">
@@ -117,6 +134,13 @@ const CaseStudyCont = (props) => {
                 <p className="section-text">{props.CaseKey}</p>
             </article>
         </section>
+        {/* Modal overlay for enlarged gallery image */}
+        {modalImg && (
+            <div className="gallery-modal" onClick={closeModal}>
+                <button className="gallery-modal-close" onClick={closeModal}>×</button>
+                <img src={modalImg} alt="Enlarged" className="gallery-modal-img" />
+            </div>
+        )}
     
     </div> );
 }

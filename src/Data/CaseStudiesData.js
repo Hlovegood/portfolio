@@ -3,6 +3,9 @@
 // Include the same prop keys used by CaseStudyCont so we can spread the object as props.
 
 import Mockup1 from "../assets/Mockups/Edita Website.png";
+import Mockup11 from "../assets/Case Pics/Egyptian food/Home Page.png";
+import Mockup12 from "../assets/Case Pics/Egyptian food/ToDo.png";
+import Mockup13 from "../assets/Case Pics/Egyptian food/Products.png";
 import Mockup2 from "../assets/Mockups/Nickelodeon Website.png";
 import Mockup3 from '../assets/Mockups/Car Parts Website.png'
 import Mockup4 from '../assets/Mockups/E-Commerce Website.png'
@@ -16,6 +19,7 @@ import Mockup6 from '../assets/Mockups/Real Estate Firm Website.png'
 const caseStudiesData = {
   "egyptian-food": {
     IMGCase: Mockup1,
+    CaseGallery: [Mockup11, Mockup12, Mockup13],
     CaseTitle: "Egyptian Food Company Website",
     CaseSub: "A digital platform for the channel you like the most.",
     CaseRole: "Lead UX/UI Designer",
@@ -51,6 +55,7 @@ const caseStudiesData = {
 
   "tv-channel": {
     IMGCase: Mockup2,
+    CaseGallery: [Mockup2, Mockup1],
     CaseTitle: "TV Channel Website",
     CaseSub: "A modern, responsive site for a TV channel.",
     CaseRole: "UX/UI Designer",
