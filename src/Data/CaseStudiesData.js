@@ -7,10 +7,26 @@ import Mockup11 from "../assets/Case Pics/Egyptian food/Home Page.png";
 import Mockup12 from "../assets/Case Pics/Egyptian food/ToDo.png";
 import Mockup13 from "../assets/Case Pics/Egyptian food/Products.png";
 import Mockup2 from "../assets/Mockups/Nickelodeon Website.png";
-import Mockup3 from '../assets/Mockups/Car Parts Website.png'
-import Mockup4 from '../assets/Mockups/E-Commerce Website.png'
-import Mockup5 from '../assets/Mockups/E-Sports Website.png'
-import Mockup6 from '../assets/Mockups/Real Estate Firm Website.png'
+import Mockup21 from "../assets/Case Pics/Tv/HOME.png";
+import Mockup22 from "../assets/Case Pics/Tv/Channels.png";
+import Mockup23 from "../assets/Case Pics/Tv/Error.png";
+import Mockup3 from '../assets/Mockups/Car Parts Website.png';
+import Mockup31 from "../assets/Case Pics/Car Parts/Home Page.png";
+import Mockup32 from "../assets/Case Pics/Car Parts/Products.png";
+import Mockup33 from "../assets/Case Pics/Car Parts/Product.png";
+import Mockup4 from '../assets/Mockups/E-Commerce Website.png';
+import Mockup41 from "../assets/Case Pics/E-Commerce/Home.png";
+import Mockup42 from "../assets/Case Pics/E-Commerce/Products.png";
+import Mockup43 from "../assets/Case Pics/E-Commerce/Delivery.png";
+import Mockup5 from '../assets/Mockups/E-Sports Website.png';
+import Mockup51 from "../assets/Case Pics/E-Sports/Hero.png";
+import Mockup52 from "../assets/Case Pics/E-Sports/Matches.png";
+import Mockup53 from "../assets/Case Pics/E-Sports/Products.png";
+import Mockup6 from '../assets/Mockups/Real Estate Firm Website.png';
+import Mockup61 from "../assets/Case Pics/Real Estate/Pros.png";
+import Mockup62 from "../assets/Case Pics/Real Estate/Showcase.png";
+import Mockup63 from "../assets/Case Pics/Real Estate/FAQ.png";
+
 
 
 
@@ -55,7 +71,7 @@ const caseStudiesData = {
 
   "tv-channel": {
     IMGCase: Mockup2,
-    CaseGallery: [Mockup2, Mockup1],
+    CaseGallery: [Mockup21, Mockup22, Mockup23],
     CaseTitle: "TV Channel Website",
     CaseSub: "A modern, responsive site for a TV channel.",
     CaseRole: "UX/UI Designer",
@@ -83,6 +99,7 @@ const caseStudiesData = {
 
    "car-parts": {
     IMGCase: Mockup3,
+    CaseGallery: [Mockup31, Mockup32, Mockup33],
     CaseTitle: "Car Parts Website",
     CaseSub: "A modern, responsive site for a Car Parts shop.",
     CaseRole: "UX/UI Designer",
@@ -110,8 +127,9 @@ const caseStudiesData = {
 
      "e-commerce": {
     IMGCase: Mockup4,
-    CaseTitle: "Car Parts Website",
-    CaseSub: "A modern, responsive site for a Car Parts shop.",
+    CaseGallery: [Mockup41, Mockup42, Mockup43],
+    CaseTitle: "E-Commerce Website",
+    CaseSub: "A modern, responsive site for an E-Commerce Platform.",
     CaseRole: "UX/UI Designer",
     CaseTime: "2 Weeks",
     CaseDate: "2024",
@@ -137,8 +155,9 @@ const caseStudiesData = {
 
      "e-sports": {
     IMGCase: Mockup5,
-    CaseTitle: "Car Parts Website",
-    CaseSub: "A modern, responsive site for a Car Parts shop.",
+    CaseGallery: [Mockup51, Mockup52, Mockup53],
+    CaseTitle: "E-Sports Website",
+    CaseSub: "A modern, responsive site for an E-Sports Platform.",
     CaseRole: "UX/UI Designer",
     CaseTime: "2 Weeks",
     CaseDate: "2024",
@@ -164,8 +183,9 @@ const caseStudiesData = {
 
      "real estate": {
     IMGCase: Mockup6,
-    CaseTitle: "Car Parts Website",
-    CaseSub: "A modern, responsive site for a Car Parts shop.",
+    CaseGallery: [Mockup61, Mockup62, Mockup63],
+    CaseTitle: "Real Estate Website",
+    CaseSub: "A modern, responsive site for a Real Estate Firm.",
     CaseRole: "UX/UI Designer",
     CaseTime: "2 Weeks",
     CaseDate: "2024",
