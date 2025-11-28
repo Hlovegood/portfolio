@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './CatgPill.css'
 import { Link } from 'react-router-dom';
 const CatgPill = (props) => {
+    const page = props.Page || '/projects';
+    const target = `${page}?category=${encodeURIComponent(props.Category)}`;
     return ( <div className='category'>
-        <Link to={props.Page}>
+        <Link to={target}>
         <p className='category-txt'>
             {props.Category}
         </p>
