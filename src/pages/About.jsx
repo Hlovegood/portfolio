@@ -1,10 +1,17 @@
 import React from 'react';
+import {Helmet} from 'react-helmet';
 import HeroImg from '../assets/Header-Logo.png'
 import './About.css';
 import Nav from '../components/nav';
 import DotGrid from '../animation/DotGrid ';
 const About = () => {
     return ( <>
+
+        <Helmet>
+        <title>About Me</title>
+        <meta name="description" content="This is the about me page to know more about Hesham Abozaid" />
+        <meta property="og:title" content="About Me" />
+        </Helmet>
 
      <div style={{ position: 'relative', width: '100%', minHeight: '100vh' }}>
 

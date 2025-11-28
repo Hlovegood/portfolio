@@ -1,7 +1,14 @@
-// src/data/caseStudiesData.js
+// src/Data/CaseStudiesData.js
+// Centralized case studies data. Each key is the project id used in routes (e.g. /projects/:id)
+// Include the same prop keys used by CaseStudyCont so we can spread the object as props.
+
+import Mockup1 from "../assets/Mockups/Edita Website.png";
+import Mockup2 from "../assets/Mockups/Nickelodeon Website.png";
+import Mockup3 from '../assets/Mockups/Car Parts Website.png'
 
 const caseStudiesData = {
   "egyptian-food": {
+    IMGCase: Mockup1,
     CaseTitle: "Egyptian Food Company Website",
     CaseSub: "A digital platform for the channel you like the most.",
     CaseRole: "Lead UX/UI Designer",
@@ -35,8 +42,59 @@ const caseStudiesData = {
       "This project reinforced the importance of thorough cultural research when designing for specific communities. By deeply understanding Egyptian visual patterns and working closely with stakeholders, I was able to create a design that resonates authentically with the target audience while maintaining modern web standards.",
   },
 
-  // Add more projects here:
-  // "project-id-2": { ... },
+  "tv-channel": {
+    IMGCase: Mockup2,
+    CaseTitle: "TV Channel Website",
+    CaseSub: "A modern, responsive site for a TV channel.",
+    CaseRole: "UX/UI Designer",
+    CaseTime: "4 Weeks",
+    CaseDate: "2024",
+    CaseApp: "Figma",
+    CaseOvr:
+      "A responsive platform to showcase video content, schedules, and channel news with an emphasis on speed and accessibility.",
+    CaseProblem:
+      "The legacy site lacked responsiveness and modern UI patterns for video consumption across devices.",
+    CaseSol:
+      "Redesigned the information architecture, implemented responsive video blocks, and improved the CMS workflow for editors.",
+    CaseResearch: "User interviews and analytics review.",
+    CaseDesign: "Wireframes, high-fidelity mockups and interactive prototypes.",
+    CaseDev: "Worked with frontend engineers to ensure performant playback and responsive layouts.",
+    CaseVis: "Design tokens and a visual language tuned for fast-loading media.",
+    CaseResponsive: "Optimized responsive layouts and adaptive media handling.",
+    CaseFlow: "Clear video discovery and scheduling flows.",
+    CaseGuide: "Component library and guidelines for editorial teams.",
+    CaseImpact: "88%",
+    CaseEngage: "52%",
+    CaseLoad: "1.8x",
+    CaseKey: "Showcased improvements in engagement and retention after launch.",
+  },
+
+   "car-parts": {
+    IMGCase: Mockup3,
+    CaseTitle: "Car Parts Website",
+    CaseSub: "A modern, responsive site for a Car Parts shop.",
+    CaseRole: "UX/UI Designer",
+    CaseTime: "2 Weeks",
+    CaseDate: "2024",
+    CaseApp: "Figma",
+    CaseOvr:
+      "A responsive platform to showcase video content, schedules, and channel news with an emphasis on speed and accessibility.",
+    CaseProblem:
+      "The legacy site lacked responsiveness and modern UI patterns for video consumption across devices.",
+    CaseSol:
+      "Redesigned the information architecture, implemented responsive video blocks, and improved the CMS workflow for editors.",
+    CaseResearch: "User interviews and analytics review.",
+    CaseDesign: "Wireframes, high-fidelity mockups and interactive prototypes.",
+    CaseDev: "Worked with frontend engineers to ensure performant playback and responsive layouts.",
+    CaseVis: "Design tokens and a visual language tuned for fast-loading media.",
+    CaseResponsive: "Optimized responsive layouts and adaptive media handling.",
+    CaseFlow: "Clear video discovery and scheduling flows.",
+    CaseGuide: "Component library and guidelines for editorial teams.",
+    CaseImpact: "78%",
+    CaseEngage: "58%",
+    CaseLoad: "0.7x",
+    CaseKey: "Showcased improvements in engagement and retention after launch.",
+  },
 };
 
 export default caseStudiesData;

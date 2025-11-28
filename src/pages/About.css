@@ -1,3 +1,13 @@
+    @font-face {
+        font-family: 'Panchang';
+        src: 
+        local("Panchang")
+        url(../fonts/Panchang-Regular.otf)
+         format('opentype');
+         font-weight: normal;
+         font-style: normal;
+    }
+
 .about-main {
 width: 90%;
     max-width: 1400px;
@@ -11,7 +21,7 @@ width: 90%;
 }
 
 .about-title {
-    font-family: akony;
+    font-family: 'Panchang';
     font-size: 48px;
     color: white;
     margin-bottom: 48px;
@@ -24,7 +34,7 @@ width: 90%;
 }
 
 .stat-item {
-    font-family: akony;
+    font-family: 'Panchang';
     font-size: 16px;
     color: white;
     padding: 12px 24px;
@@ -49,7 +59,7 @@ width: 90%;
     background: rgba(43, 27, 23, 0.9);
     border: 1px solid #FFB574;
     color: white;
-    font-family: panchang;
+    font-family: 'Panchang';
 }
 
 .profile-image {
@@ -66,7 +76,7 @@ width: 90%;
 }
 
 .section-heading {
-    font-family: akony;
+    font-family: 'Panchang';
     font-size: 24px;
     color: #FFB574;
     margin-bottom: 24px;
@@ -89,7 +99,7 @@ width: 90%;
 }
 
 .skill-tag, .tool-tag {
-    font-family: panchang;
+    font-family: 'Panchang';
     font-size: 16px;
     color: white;
     padding: 8px 16px;
@@ -99,7 +109,7 @@ width: 90%;
 }
 
 .skills-description {
-    font-family: panchang;
+    font-family: 'Panchang';
     font-size: 16px;
     line-height: 1.6;
     color: white;
@@ -110,14 +120,14 @@ width: 90%;
 }
 
 .university {
-    font-family: akony;
+    font-family: 'Panchang';
     font-size: 20px;
     margin-bottom: 16px;
     color: #FFB574;
 }
 
 .faculty, .major {
-    font-family: panchang;
+    font-family: 'Panchang';
     font-size: 16px;
     line-height: 1.6;
     margin-bottom: 8px;
@@ -125,7 +135,7 @@ width: 90%;
 
 .philosophy-content {
     color: white;
-    font-family: panchang;
+    font-family: 'Panchang';
     font-size: 16px;
     line-height: 1.6;
 }

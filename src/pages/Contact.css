@@ -1,3 +1,13 @@
+    @font-face {
+        font-family: 'Panchang';
+        src: 
+        local("Panchang")
+        url(../fonts/Panchang-Regular.otf)
+         format('opentype');
+         font-weight: normal;
+         font-style: normal;
+    }
+
 .contact-main {
     width: 90%;
     max-width: 1400px;
@@ -26,13 +36,13 @@
 }
 
 .contact-title {
-    font-family: akony;
+    font-family: 'Panchang';
     font-size: 48px;
     color: #FFB574;
 }
 
 .contact-intro {
-    font-family: text;
+    font-family: 'Panchang';
     font-size: 16px;
     color: white;
     max-width: 600px;
@@ -67,7 +77,7 @@
 }
 
 .form-group label {
-    font-family: akony;
+    font-family: 'Panchang';
     font-size: 14px;
     color: #FFB574;
 }
@@ -79,7 +89,7 @@
     border: 1px solid #FFB574;
     background: rgba(255, 181, 116, 0.1);
     color: white;
-    font-family: text;
+    font-family: 'Panchang';
     font-size: 16px;
 }
 
@@ -94,7 +104,7 @@
     border: 1px solid #FFB574;
     background: rgba(255, 181, 116, 0.1);
     color: white;
-    font-family: akony;
+    font-family: 'Panchang';
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -138,7 +148,7 @@
 }
 
 .info-item p {
-    font-family: text;
+    font-family: 'Panchang';
     font-size: 16px;
     color: white;
     margin: 0;
@@ -151,7 +161,7 @@
 }
 
 .social-link {
-    font-family: panchang;
+    font-family: 'Panchang';
     font-size: 16px;
     color: white;
     text-decoration: none;
@@ -170,7 +180,7 @@
 
 .availability-text,
 .response-time {
-    font-family: text;
+    font-family: 'Panchang';
     font-size: 16px;
     color: white;
     line-height: 1.6;
@@ -187,14 +197,14 @@
 }
 
 .cta-title {
-    font-family: akony;
+    font-family: 'Panchang';
     font-size: 32px;
     color: #FFB574;
     margin-bottom: 24px;
 }
 
 .cta-text {
-    font-family: text;
+    font-family: 'Panchang';
     font-size: 16px;
     color: white;
     line-height: 1.6;

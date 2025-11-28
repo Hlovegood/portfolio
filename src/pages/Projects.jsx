@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import {Helmet} from 'react-helmet';
 import './Projects.css'
 import DotGrid from '../animation/DotGrid ';
 import Nav from '../components/nav';
@@ -7,9 +7,18 @@ import Container from '../common/CategoryCont';
 import Pill from '../common/Pill';
 import ProjectHolder from '../common/ProjectHolder';
 import Mockup1 from '../assets/Mockups/Edita-Web.png'
+import Mockup2 from '../assets/Mockups/Nickelodeon Website.png'
+import Mockup3 from '../assets/Mockups/Car Parts Website.png'
 import Footer from '../components/footer'
 const Projects = () => {
     return ( <>
+
+        <Helmet>
+        <title>Projects</title>
+        <meta name="description" content="This is the page for each projects category" />
+        <meta property="og:title" content="Projects" />
+        </Helmet>
+
                 <div style={{ position: 'relative', width: '100%', minHeight: '100vh' }}>
 
             <div style={{ 
@@ -55,13 +64,33 @@ const Projects = () => {
                             <ProjectHolder 
                             ProjectIMG={Mockup1} 
                              ProjectTitle={"Egyptian Food Brand Website"} 
-                             ProjectDate={"2024"} 
+                             ProjectDate={"2023"} 
                              ProjectCatg1={"Code"} 
                              ProjectCatg2={"Design"} 
                              Project={"egyptian-food"}/>
-                            <ProjectHolder />
-                            <ProjectHolder />
+                            <ProjectHolder 
+                            ProjectIMG={Mockup2}
+                             ProjectDate={"2024"} 
+                             ProjectCatg1={"Code"} 
+                             ProjectCatg2={"Design"}
+                             ProjectTitle={"TV Channel Website"}
+                             Project={"tv-channel"}
+                              />
+                            <ProjectHolder
+                            ProjectIMG={Mockup3}
+                             ProjectDate={"2022"} 
+                             ProjectCatg1={"Code"} 
+                             ProjectCatg2={"Design"}
+                             ProjectTitle={"Car Parts Website"}
+                             Project={"car-parts"}
+                            />
 
+                            
+
+                        </div>
+
+                        <div className='projects-down'>
+                                
                         </div>
                         
                     </div>

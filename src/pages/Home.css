@@ -1,3 +1,14 @@
+    @font-face {
+        font-family: 'Panchang';
+        src: 
+        local("Panchang")
+        url(../fonts/Panchang-Regular.otf)
+         format('opentype');
+         font-weight: normal;
+         font-style: normal;
+    }
+
+
 .hero-div{
 display: flex;
 width: 30%;
@@ -17,7 +28,7 @@ border-top-width: 0;
 
 .hero-text{
     color: #FFF;
-    font-family: Panchang;
+    font-family: 'Panchang';
     font-size: 36px;
     font-style: normal;
     font-weight: 700;
@@ -60,7 +71,7 @@ padding: 24px;
 }
 
 .title{
-    font-family: Panchang;
+    font-family: 'Panchang';
     color: white;
     font-size: 2.25rem;
     margin-bottom: 2%;
@@ -131,14 +142,14 @@ flex-direction: row-reverse;
 
 
 .About-head{
-    font-family: Panchang;
+    font-family: 'Panchang';
     color: white;
     font-size: 36px;
     font-weight: 700;
 }
 
 .About-txt{
-    font-family: Panchang;
+    font-family: 'Panchang';
     color: white;
     font-size: 16px;
 }
@@ -153,7 +164,7 @@ flex-direction: row-reverse;
 }
 
 .about-filling p{
-    font-family: Panchang;
+    font-family: 'Panchang';
     color: white;
     font-size: 16px;
 
@@ -277,7 +288,7 @@ flex-direction: row-reverse;
 
     .Catg-Cont { gap: 2.5vw !important; }
 
-    /* Ensure category container wraps on tablet */
+
     .Catg-Cont {
         flex-wrap: wrap !important;
         width: 88vw !important;
@@ -292,7 +303,7 @@ flex-direction: row-reverse;
 
     .About { padding: 3.5vw !important; flex-direction: column !important; gap: 3.5vw !important; }
 
-    /* center content and text on tablet */
+
     .hero-div, .projects-cont, .Pill-cont, .Catg-Cont, .projects-up, .projects-down, .About, .about-filling {
         align-items: center !important;
         justify-content: center !important;
@@ -303,12 +314,12 @@ flex-direction: row-reverse;
 
     .about-filling { padding: 3.5vw !important; width: 88vw !important; }
 
-    /* Headline sizes in tablet responsive view */
+
     .hero-text, .title, .About-head {
         font-size: 24px !important;
     }
 
-    /* Hide the full projects grid on tablet, keep category pills visible */
+
     .projects-holder1 {
         display: none !important;
         visibility: hidden !important;

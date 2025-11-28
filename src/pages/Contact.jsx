@@ -1,9 +1,16 @@
 import React from 'react';
+import {Helmet} from 'react-helmet';
 import './Contact.css';
 import Nav from '../components/nav';
 import DotGrid from '../animation/DotGrid ';
 const Contact = () => {
     return ( <>
+
+        <Helmet>
+        <title>Contact</title>
+        <meta name="description" content="This is the contact page to reach Hesham Abozaid" />
+        <meta property="og:title" content="Contact" />
+        </Helmet>
 
          <div style={{ position: 'relative', width: '100%', minHeight: '100vh' }}>
 

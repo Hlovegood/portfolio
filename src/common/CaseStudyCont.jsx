@@ -7,8 +7,7 @@ const CaseStudyCont = (props) => {
 
     return ( <div className='CaseStudy'>
      <section className="case-hero">
-            <figure className="case-hero-img" data-project="egyptian-food">
-            </figure>
+            <img src={props.IMGCase} className="case-hero-img" alt='Case Hero'/>
             <h1 className="case-title">
                 {props.CaseTitle}
             </h1>

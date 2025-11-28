@@ -1,3 +1,13 @@
+    @font-face {
+        font-family: 'Panchang';
+        src: 
+        local("Panchang")
+        url(../fonts/Panchang-Regular.otf)
+         format('opentype');
+         font-weight: normal;
+         font-style: normal;
+    }
+
 .case-hero {
     width: 100%;
     margin-bottom: 5%;
@@ -19,7 +29,8 @@
 }
 
 .case-hero-img {
-    height: 60vh;
+    width: 80%;
+    height: 80vh;
     margin: 0 0 2%;
     background-size: cover;
     background-position: center;
@@ -40,7 +51,7 @@
 }
 
 .case-title {
-    font-family: Panchang;
+    font-family: 'Panchang';
     font-size: 3rem;
     margin: 0 0 1%;
     color: white;
@@ -48,7 +59,7 @@
 }
 
 .case-subtitle {
-    font-family: Panchang;
+    font-family: 'Panchang';
     font-size: 1.5rem;
     margin: 0 0 3%;
     color: #FFB574;
@@ -79,13 +90,13 @@
 }
 
 .meta-label {
-    font-family: akony;
+    font-family: 'Panchang';
     font-size: 0.875rem;
     color: #FFB574;
 }
 
 .meta-value {
-    font-family: Panchang;
+    font-family: 'Panchang';
     font-size: 1rem;
     font-weight: 400;
 }
@@ -110,7 +121,7 @@
 }
 
 .section-text {
-    font-family: Panchang;
+    font-family: 'Panchang';
     font-size: 1.125rem;
     line-height: 1.6;
     color: white;
@@ -143,14 +154,14 @@
 }
 
 .process-title {
-    font-family: Panchang;
+    font-family: 'Panchang';
     font-size: 1.25rem;
     margin: 16px 0;
     color: white;
 }
 
 .process-text {
-    font-family: Panchang;
+    font-family: 'Panchang';
     font-size: 1rem;
     line-height: 1.5;
     color: white;
@@ -170,14 +181,14 @@
 }
 
 .deliverable-title {
-    font-family: Panchang;
+    font-family: 'Panchang';
     font-size: 1.25rem;
     margin: 0 0 16px;
     color: #FFB574;
 }
 
 .deliverable-text {
-    font-family: Panchang;
+    font-family: 'Panchang';
     font-size: 1rem;
     line-height: 1.5;
     color: white;
@@ -202,7 +213,7 @@
 
 .result-number {
     display: block;
-    font-family: Panchang;
+    font-family: 'Panchang';
     font-size: 3rem;
     color: #FFB574;
     margin-bottom: 8px;
@@ -210,7 +221,7 @@
 }
 
 .result-label {
-    font-family: Panchang;
+    font-family: 'Panchang';
     font-size: 1rem;
     color: white;
 }
@@ -244,7 +255,7 @@
         margin-right: auto !important;
     }
 
-    /* Headline sizes for tablet */
+
     .case-title, .section-title, .process-title, .case-subtitle {
         font-size: 24px !important;
     }
@@ -254,7 +265,6 @@
     .case-grid, .deliverables-grid {
         grid-template-columns: 1fr !important;
         gap: 1.25rem !important;
-        width: 92vw !important;
         margin-left: auto !important;
         margin-right: auto !important;
         text-align: center !important;
@@ -264,7 +274,6 @@
     .process-steps {
         grid-template-columns: 1fr !important;
         gap: 1rem !important;
-        width: 92vw !important;
         margin-left: auto !important;
         margin-right: auto !important;
         text-align: center !important;
@@ -279,10 +288,10 @@
 
     .case-hero-img, .case-hero-video {
         height: 40vh !important;
-        width: 100% !important;
+        width: 88% !important;
     }
 
-    /* Headline sizes for smaller screens */
+
     .case-title, .section-title, .process-title, .case-subtitle {
         text-align: center !important;
         font-size: 24px !important;

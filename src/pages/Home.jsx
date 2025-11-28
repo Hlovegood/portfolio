@@ -1,4 +1,5 @@
 import React from 'react';
+import {Helmet} from 'react-helmet';
 import Nav from '../components/nav';
 import './Home.css'
 import DotGrid from '../animation/DotGrid ';
@@ -17,8 +18,15 @@ import TiltedCard from '../animation/TiltedCard';
 import Footer from '../components/footer'
 const Home = () => {
     return (
+        <>
+        <Helmet>
+        <title>Home</title>
+        <meta name="description" content="This is the HomePage for the portfolio" />
+        <meta property="og:title" content="Home" />
+        </Helmet>
         
-        // BG
+         {/* BG */}
+
         <div style={{ position: 'relative', width: '100%', minHeight: '100vh' }}>
 
             <div style={{ 
@@ -189,6 +197,7 @@ const Home = () => {
                 </main>
             </div>
         </div>
+        </>
     );
 }
  
