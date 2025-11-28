@@ -100,7 +100,17 @@ const Projects = () => {
                              ProjectCatg2={"Design"}
                              ProjectTitle={"E-Commerce Website"}
                              Project={"e-commerce"}
-                            />                                
+                            /> 
+
+
+                            <ProjectHolder
+                            ProjectIMG={Mockup5}
+                             ProjectDate={"2022"} 
+                             ProjectCatg1={"Code"} 
+                             ProjectCatg2={"Design"}
+                             ProjectTitle={"E-Sports Website Website"}
+                             Project={"e-sports"}
+                            />                                 
                         </div>
                         
                     </div>
