@@ -6,9 +6,12 @@ import Nav from '../components/nav';
 import Container from '../common/CategoryCont';
 import Pill from '../common/Pill';
 import ProjectHolder from '../common/ProjectHolder';
-import Mockup1 from '../assets/Mockups/Edita-Web.png'
+import Mockup1 from '../assets/Mockups/Edita Website.png'
 import Mockup2 from '../assets/Mockups/Nickelodeon Website.png'
 import Mockup3 from '../assets/Mockups/Car Parts Website.png'
+import Mockup4 from '../assets/Mockups/E-Commerce Website.png'
+import Mockup5 from '../assets/Mockups/E-Sports Website.png'
+import Mockup6 from '../assets/Mockups/Real Estate Firm Website.png'
 import Footer from '../components/footer'
 const Projects = () => {
     return ( <>
@@ -90,7 +93,14 @@ const Projects = () => {
                         </div>
 
                         <div className='projects-down'>
-                                
+                            <ProjectHolder
+                            ProjectIMG={Mockup4}
+                             ProjectDate={"2022"} 
+                             ProjectCatg1={"Code"} 
+                             ProjectCatg2={"Design"}
+                             ProjectTitle={"E-Commerce Website"}
+                             Project={"e-commerce"}
+                            />                                
                         </div>
                         
                     </div>
