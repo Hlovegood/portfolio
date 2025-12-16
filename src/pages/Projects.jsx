@@ -16,8 +16,6 @@ import Mockup7 from "../assets/Photography/Photo1.JPG";
 import Mockup8 from "../assets/Photography/Photo2.JPG";
 import Mockup9 from "../assets/Photography/Photo3.JPG";
 import Mockup10 from "../assets/Mockups/Game AR.png";
-import Mockup11 from "../assets/Mockups/Tour AR.png";
-import Mockup12 from "../assets/Mockups/Escape Room AR.png";
 import Footer from "../components/footer";
 import { useLocation } from 'react-router-dom';
 
@@ -33,7 +31,7 @@ const Projects = () => {
       ProjectDate: "2023",
       ProjectCatg1: "Code",
       ProjectCatg2: "Design",
-      Project: "egyptian-food",
+      Project: "egyptian-food",  
       ProjectCategory: 'UX/UI'
     },
     {
@@ -42,7 +40,7 @@ const Projects = () => {
       ProjectCatg1: "Code",
       ProjectCatg2: "Design",
       ProjectTitle: "TV Channel Website",
-      Project: "tv-channel",
+      Project: "tv-channel",  
       ProjectCategory: 'UX/UI'
     },
     {
@@ -51,7 +49,7 @@ const Projects = () => {
       ProjectCatg1: "Code",
       ProjectCatg2: "Design",
       ProjectTitle: "Car Parts Website",
-      Project: "car-parts",
+      Project: "car-parts",  
       ProjectCategory: 'UX/UI'
     },
     {
@@ -60,7 +58,7 @@ const Projects = () => {
       ProjectCatg1: "Code",
       ProjectCatg2: "Design",
       ProjectTitle: "E-Commerce Website",
-      Project: "e-commerce",
+      Project: "e-commerce",  
       ProjectCategory: 'UX/UI'
     },
     {
@@ -69,7 +67,7 @@ const Projects = () => {
       ProjectCatg1: "Code",
       ProjectCatg2: "Design",
       ProjectTitle: "E-Sports Website",
-      Project: "e-sports",
+      Project: "e-sports",  
       ProjectCategory: 'UX/UI'
     },
     {
@@ -78,7 +76,7 @@ const Projects = () => {
       ProjectCatg1: "Code",
       ProjectCatg2: "Design",
       ProjectTitle: "Real Estate Website",
-      Project: "real estate",
+      Project: "real-estate",  
       ProjectCategory: 'UX/UI'
     },
     {
@@ -86,7 +84,7 @@ const Projects = () => {
       ProjectDate: "2022",
       ProjectCatg2: "Photo",
       ProjectTitle: "High Shutter Speed",
-      Project: "High Shutter Speed",
+      Project: "high-shutter-speed", 
       ProjectCategory: 'Photography'
     },
     {
@@ -94,34 +92,32 @@ const Projects = () => {
       ProjectDate: "2022",
       ProjectCatg2: "Photo",
       ProjectTitle: "Night Shot",
-      Project: "Night shot",
+      Project: "night-shot", 
       ProjectCategory: 'Photography'
     },
-        {
+    {
       ProjectIMG: Mockup9,
       ProjectDate: "2022",
       ProjectCatg2: "Photo",
-      ProjectTitle: "Stop motion",
-      Project: "Stop Motion",
+      ProjectTitle: "Stop Motion",
+      Project: "stop-motion", 
       ProjectCategory: 'Photography'
     },
-
     {
-        ProjectIMG: Mockup10,
-        ProjectDate: "2023",
-        ProjectCatg1: "AR",
-        ProjectTitle: "AR Game",
-        Project: "Game AR",
-        ProjectCategory: 'Augmented Reality'
-
+      ProjectIMG: Mockup10,
+      ProjectDate: "2023",
+      ProjectCatg1: "AR",
+      ProjectTitle: "AR Game",
+      Project: "game-ar", 
+      ProjectCategory: 'Augmented Reality'
     }
   ];
 
   const filtered = projects.filter(p => !category || (p.ProjectCategory && p.ProjectCategory.toLowerCase() === category.toLowerCase()));
 
-  
   const firstRow = filtered.slice(0, 3);
   const secondRow = filtered.slice(3, 6);
+  const remainingProjects = filtered.slice(6);
 
   return (
     <>
@@ -202,9 +198,25 @@ const Projects = () => {
                   ProjectCatg2={p.ProjectCatg2}
                   Project={p.Project}
                 />
-                
               ))}
             </div>
+
+            {/* Render any remaining projects */}
+            {remainingProjects.length > 0 && (
+              <div className="projects-remaining">
+                {remainingProjects.map((p) => (
+                  <ProjectHolder
+                    key={p.Project}
+                    ProjectIMG={p.ProjectIMG}
+                    ProjectTitle={p.ProjectTitle}
+                    ProjectDate={p.ProjectDate}
+                    ProjectCatg1={p.ProjectCatg1}
+                    ProjectCatg2={p.ProjectCatg2}
+                    Project={p.Project}
+                  />
+                ))}
+              </div>
+            )}
           </div>
 
           <Footer />
