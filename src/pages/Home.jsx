@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import Nav from "../components/nav";
 import "./Home.css";
@@ -17,7 +17,34 @@ import Project6 from "../assets/Project 6.png";
 import TiltedCard from "../animation/TiltedCard";
 import Footer from "../components/footer";
 import { Link } from "react-router-dom";
+import { supabase } from "../supabase";
+
 const Home = () => {
+  const [loading, setLoading] = useState(true);
+  const [Details, setDetails] = useState([]);
+
+  useEffect(() => {
+  async function callGetAPI() {
+    const { data, error } = await supabase
+      .from("Home")
+      .select("*")
+      .order("id", { ascending: true }) // ALWAYS English row
+      .limit(1)
+      .single();
+
+    if (!error && data) {
+      setDetails([data]);
+    }
+
+    setLoading(false);
+  }
+
+  callGetAPI();
+}, []);
+
+
+  if (loading) return <p>Loading...</p>;
+
   return (
     <>
       <Helmet>
@@ -29,8 +56,7 @@ const Home = () => {
         <meta property="og:title" content="Home" />
       </Helmet>
 
-      {/* BG */}
-
+      {/* Background */}
       <div style={{ position: "relative", width: "100%", minHeight: "100vh" }}>
         <div
           style={{
@@ -61,139 +87,127 @@ const Home = () => {
           <Nav />
 
           <main>
-            <ScrollVelocity
-              texts={["Front-End Dev.", "Video Editor"]}
-              velocity={80}
-              className="custom-scroll-text"
-            />
+            {Details.map((Detail) => (
+              <React.Fragment key={Detail.id}>
+                {/* Hero */}
+                <ScrollVelocity
+                  texts={["Front-End Dev.", "Video Editor"]}
+                  velocity={80}
+                  className="custom-scroll-text"
+                />
 
-            <Container
-              title={"Hesham Abozaid | UX/UI Designer"}
-              img={HeroImg}
-            />
-            <ScrollVelocity
-              texts={["UX/UI Desinger", "3D Modeler"]}
-              velocity={80}
-              className="custom-scroll-text"
-            />
+                <Container
+                  title={Detail.Name}
+                  img={Detail.Hero_Img}
+                />
 
-            <div className="showreel">
-              {/* Showreel */}
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/VrLXMjj0ybU?si=b1IIV9JWa-YriOzk"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-                className="video"
-              ></iframe>
-            </div>
-            {/* Experience */}
-            <div className="Pill-cont">
-              <Pill EXP={"3+ Years of Experience"} />
-              <Pill EXP={"10+ Apps Used"} />
-              <Pill EXP={"30+ Designs made"} />
-            </div>
+                <ScrollVelocity
+                  texts={["UX/UI Desinger", "3D Modeler"]}
+                  velocity={80}
+                  className="custom-scroll-text"
+                />
 
-            {/* Projects */}
-
-            <div className="projects-cont">
-              <h1 className="title">Projects</h1>
-
-              <div className="Catg-Cont">
-                <CatgPill Page="/projects" Category={"UX/UI"} />
-                <CatgPill Category={"3D Modeling"} />
-                <CatgPill Category={"Digital Design"} />
-                <CatgPill Category={"Front-End Dev."} />
-                <CatgPill Category={"Photography"} />
-                <CatgPill Category={"Augmented Reality"} />
-              </div>
-
-              <div className="projects-holder1">
-                <article class="projects-up">
-                  <article class="project">
-                    <img src={Project1} alt="" />
-                  </article>
-
-                  <Link to={"/projects/e-sports"} class="project">
-                    <img src={Project2} alt="" />
-                  </Link>
-
-                  <article class="project">
-                    <img src={Project3} alt="" />
-                  </article>
-                </article>
-
-                <article class="projects-down">
-                  <article class="project-1-dwn">
-                    <img src={Project4} alt="" />
-                  </article>
-
-                  <article class="project-2-dwn">
-                    <img src={Project5} alt="" />
-                  </article>
-
-                  <article class="project-1-dwn">
-                    <img src={Project6} alt="" />
-                  </article>
-                </article>
-              </div>
-            </div>
-
-            {/* About */}
-
-            <div className="About">
-              <TiltedCard
-                imageSrc={HeroImg}
-                altText="Hesham Abozaid UX|UI Designer"
-                captionText="Hesham Abozaid UX|UI Designer"
-                containerHeight="300px"
-                containerWidth="300px"
-                imageHeight="300px"
-                imageWidth="300px"
-                rotateAmplitude={12}
-                scaleOnHover={1.2}
-                showMobileWarning={false}
-                showTooltip={true}
-                displayOverlayContent={true}
-                overlayContent={
-                  <p className="tilted-card-demo-text">Hesham Abozaid</p>
-                }
-              />
-
-              <div class="about-filling">
-                <h1 class="About-head">About</h1>
-
-                <div class="About-txt">
-                  <p>
-                    My name is Hesham Abozaid I am 21 Years of age and I am a
-                    User Experience Designer Based in Cairo, Egypt.
-                  </p>
-
-                  <p>
-                    I studied in the Egypt University of Informatics for 4 years
-                    in the faculty of Digital arts & Design, I majored in User
-                    Experience Design for 3 years of my study, In Those Years
-                  </p>
-
-                  <p>
-                    I learned a lot of skills as: Proportionality, Spacing,
-                    Color Theory, Photography, Digital design, 3D Modeling, User
-                    Interface, User Experience, Coding, Drawing. And many
-                  </p>
-
-                  <p>
-                    Apps: Blender, Photoshop, Illustrator, Figma, Visual studio
-                    code. Premiere pro, Aftereffects, 3Ds MAX, Lightroom, Aero,
-                    Substance, Bezi
-                  </p>
+                {/* Showreel */}
+                <div className="showreel">
+                  <iframe
+                    width="560"
+                    height="315"
+                    src={"https://youtu.be/VrLXMjj0ybU?si=QR4CZT6_38tTAtaU"}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                    className="video"
+                  ></iframe>
                 </div>
-              </div>
-            </div>
-            {/* Footer */}
+
+                {/* Experience Pills */}
+                <div className="Pill-cont">
+                  <Pill EXP={Detail.Experience_1} />
+                  <Pill EXP={Detail.Experience_2} />
+                  <Pill EXP={Detail.Experience_3} />
+                </div>
+
+                {/* Projects */}
+                <div className="projects-cont">
+                  <h1 className="title">Projects</h1>
+
+                  <div className="Catg-Cont">
+                    <CatgPill Page="/projects" Category={"UX/UI"} />
+                    <CatgPill Category={"3D Modeling"} />
+                    <CatgPill Category={"Digital Design"} />
+                    <CatgPill Category={"Front-End Dev."} />
+                    <CatgPill Category={"Photography"} />
+                    <CatgPill Category={"Augmented Reality"} />
+                  </div>
+
+                  <div className="projects-holder1">
+                    <article className="projects-up">
+                      <article className="project">
+                        <img src={Project1} alt="" />
+                      </article>
+
+                      <Link to={"/projects/e-sports"} className="project">
+                        <img src={Project2} alt="" />
+                      </Link>
+
+                      <article className="project">
+                        <img src={Project3} alt="" />
+                      </article>
+                    </article>
+
+                    <article className="projects-down">
+                      <article className="project-1-dwn">
+                        <img src={Project4} alt="" />
+                      </article>
+
+                      <article className="project-2-dwn">
+                        <img src={Project5} alt="" />
+                      </article>
+
+                      <article className="project-1-dwn">
+                        <img src={Project6} alt="" />
+                      </article>
+                    </article>
+                  </div>
+                </div>
+
+                {/* About */}
+                <div className="About">
+                  <TiltedCard
+                    imageSrc={HeroImg}
+                    altText="Hesham Abozaid UX|UI Designer"
+                    captionText="Hesham Abozaid UX|UI Designer"
+                    containerHeight="300px"
+                    containerWidth="300px"
+                    imageHeight="300px"
+                    imageWidth="300px"
+                    rotateAmplitude={12}
+                    scaleOnHover={1.2}
+                    showMobileWarning={false}
+                    showTooltip={false}
+                    displayOverlayContent={true}
+                    overlayContent={
+                      <p className="tilted-card-demo-text">
+                        Hesham Abozaid
+                      </p>
+                    }
+                  />
+
+                  <div className="about-filling">
+                    <h1 className="About-head">About</h1>
+
+                    <div className="About-txt">
+                     <p>
+                      {Detail.About}
+                     </p>
+                    </div>
+                  </div>
+                </div>
+              </React.Fragment>
+            ))}
+
             <Footer />
           </main>
         </div>

@@ -1,117 +1,166 @@
-import React from 'react';
-import {Helmet} from 'react-helmet';
-import HeroImg from '../assets/Header-Logo.png'
-import './About.css';
-import Nav from '../components/nav';
-import DotGrid from '../animation/DotGrid ';
+import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
+import HeroImg from "../assets/Header-Logo.png";
+import "./About.css";
+import Nav from "../components/nav";
+import DotGrid from "../animation/DotGrid ";
+import { supabase } from "../supabase";
+
 const About = () => {
-    return ( <>
+  const [loading, setLoading] = useState(true);
+  const [Details, setDetails] = useState([]);
+  const [Skills, setSkills] = useState([]);
 
-        <Helmet>
+  useEffect(() => {
+    async function callGetAPI() {
+      // 1️⃣ Fetch HOME (English row)
+      const { data: homeData, error: homeError } = await supabase
+        .from("Home")
+        .select("*")
+        .order("id", { ascending: true })
+        .limit(1)
+        .single();
+
+      if (!homeError && homeData) {
+        setDetails([homeData]); // keep same map logic
+      }
+
+      // 2️⃣ Fetch SKILLS table
+      const { data: skillsData, error: skillsError } = await supabase
+        .from("Skills")
+        .select("*")
+        .order("id", { ascending: true });
+
+      if (!skillsError && skillsData) {
+        setSkills(skillsData);
+      }
+
+      setLoading(false);
+    }
+
+    callGetAPI();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+
+  return (
+    <>
+      <Helmet>
         <title>About Me</title>
-        <meta name="description" content="This is the about me page to know more about Hesham Abozaid" />
+        <meta
+          name="description"
+          content="This is the about me page to know more about Hesham Abozaid"
+        />
         <meta property="og:title" content="About Me" />
-        </Helmet>
+      </Helmet>
 
-     <div style={{ position: 'relative', width: '100%', minHeight: '100vh' }}>
+      <div style={{ position: "relative", width: "100%", minHeight: "100vh" }}>
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100vh",
+            zIndex: 0,
+            pointerEvents: "none",
+          }}
+        >
+          <DotGrid
+            dotSize={5}
+            gap={15}
+            baseColor="#3b2b0269"
+            activeColor="#ffffffff"
+            proximity={80}
+            shockRadius={150}
+            shockStrength={5}
+            resistance={150}
+            returnDuration={2.5}
+          />
+        </div>
 
-            <div style={{ 
-                position: 'fixed', 
-                top: 0, 
-                left: 0, 
-                width: '100%', 
-                height: '100vh',
-                zIndex: 0,
-                pointerEvents: 'none' 
-            }}>
-                <DotGrid
-                    dotSize={5}
-                    gap={15}
-                    baseColor="#3b2b0269"
-                    activeColor="#ffffffff"
-                    proximity={80}
-                    shockRadius={150}
-                    shockStrength={5}
-                    resistance={150}
-                    returnDuration={2.5}
-                />
-            </div>
+        <div style={{ position: "relative", zIndex: 10, height: "100vh" }}>
+          <Nav />
 
-             <div style={{ position: 'relative', zIndex: 10 , height: '100vh' }}>
-                <Nav />
-     <main class="about-main">
-        <header class="about-header">
-            <h1 class="about-title">About Me</h1>
-            <div class="about-stats">
-                <div class="stat-item">3+ Years Experience</div>
-                <div class="stat-item">10+ Apps</div>
-                <div class="stat-item">30+ Designs made</div>
-            </div>
-        </header>
+          {Details.map((Detail) => (
+            <main className="about-main" key={Detail.id}>
+              <header className="about-header">
+                <h1 className="about-title">About Me</h1>
+                <div className="about-stats">
+                  <div className="stat-item">{Detail.Experience_1}</div>
+                  <div className="stat-item">{Detail.Experience_2}</div>
+                  <div className="stat-item">{Detail.Experience_3}</div>
+                </div>
+              </header>
 
-        <section class="about-intro">
-            <div class="intro-content">
-                <h2 class="section-heading">Introduction</h2>
-                <p>My name is Hesham Abozaid I am 21 Years of age and I am a User Experience Designer based in Cairo, Egypt.</p>
-                <p>I studied in the Egypt University of Informatics for 4 years in the Faculty of Digital arts & Design. I majored in User Experience Design for 3 years of my study.</p>
-                <p>During those years, I developed a passion for creating intuitive and visually stunning digital experiences that solve real-world problems.</p>
-            </div>
-            <div class="profile-image">
-                <img src={HeroImg} alt="Hesham Abozaid" class="about-photo"/>
-            </div>
-        </section>
+              <section className="about-intro">
+                <div className="intro-content">
+                  <h2 className="section-heading">Introduction</h2>
+                  <p>{Detail.About}</p>
+                </div>
 
-        <section class="skills-section">
-            <h2 class="section-heading">Skills & Expertise</h2>
-            <div class="skills-grid">
-                <span class="skill-tag">UX/UI Design</span>
-                <span class="skill-tag">Front-End Dev</span>
-                <span class="skill-tag">3D Modeling</span>
-                <span class="skill-tag">Photography</span>
-                <span class="skill-tag">Digital Design</span>
-                <span class="skill-tag">Video Editing</span>
-            </div>
-            <p class="skills-description">I learned a lot of skills including: Proportionality, Spacing, Color Theory, Photography, Digital Design, 3D Modeling, User Interface, User Experience, Coding, and Drawing.</p>
-        </section>
+                <div className="profile-image">
+                  <img
+                    src={Detail.Hero_Img}
+                    alt="Hesham Abozaid"
+                    className="about-photo"
+                  />
+                </div>
+              </section>
 
-        <section class="tools-section">
-            <h2 class="section-heading">Tools & Software</h2>
-            <div class="tools-grid">
-                <span class="tool-tag">Figma</span>
-                <span class="tool-tag">Blender</span>
-                <span class="tool-tag">Photoshop</span>
-                <span class="tool-tag">Illustrator</span>
-                <span class="tool-tag">VS Code</span>
-                <span class="tool-tag">Premiere Pro</span>
-                <span class="tool-tag">After Effects</span>
-                <span class="tool-tag">3Ds Max</span>
-                <span class="tool-tag">Lightroom</span>
-                <span class="tool-tag">Substance</span>
-                <span class="tool-tag">Rhino</span>
-                <span class="tool-tag">Aero</span>
-            </div>
-        </section>
+              <section className="skills-section">
+                <h2 className="section-heading">Skills & Expertise</h2>
 
-        <section class="education-section">
-            <h2 class="section-heading">Education</h2>
-            <div class="education-content">
-                <h3 class="university">Egypt University of Informatics</h3>
-                <p class="faculty">Faculty of Digital Arts & Design</p>
-                <p class="major">Major: User Experience Design</p>
-            </div>
-        </section>
+             <div className="skills-grid">
+  {Skills
+    .filter(skill => skill.Skills) 
+    .map((skill) => (
+      <span className="skill-tag" key={skill.id}>
+        {skill.Skills}
+      </span>
+    ))}
+</div>
 
-        <section class="philosophy-section">
-            <h2 class="section-heading">Design Philosophy</h2>
-            <div class="philosophy-content">
-                <p>I believe that great design is the perfect intersection of aesthetics and functionality. Every pixel should serve a purpose, every interaction should feel natural, and every design should tell a story.</p>
-                <p>My approach combines creative innovation with user-centered thinking, ensuring that the final product not only looks beautiful but also solves real problems and enhances user experiences.</p>
-            </div>
-        </section>
-    </main>
-    </div>
-    </div>
-    </> );
-}
- 
+              </section>
+
+              <section className="tools-section">
+                <h2 className="section-heading">Tools & Software</h2>
+
+                <div className="tools-grid">
+                  {Skills.flatMap((skill) =>
+                    skill.Apps
+                      ? skill.Apps.split(",").map((app) => app.trim())
+                      : []
+                  ).map((app, i) => (
+                    <span className="tool-tag" key={i}>
+                      {app}
+                    </span>
+                  ))}
+                </div>
+              </section>
+
+              <section className="education-section">
+                <h2 className="section-heading">Education</h2>
+                <div className="education-content">
+                  <h3 className="university">{Detail.University}</h3>
+                  <p className="faculty">{Detail.Faculty}</p>
+                  <p className="major">{Detail.Major}</p>
+                </div>
+              </section>
+
+              <section className="philosophy-section">
+                <h2 className="section-heading">Design Philosophy</h2>
+                <div className="philosophy-content">
+                  <p>{Detail.Philosophy_1}</p>
+                  <p>{Detail.Philosophy_2}</p>
+                </div>
+              </section>
+            </main>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+};
+
 export default About;
