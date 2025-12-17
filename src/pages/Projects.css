@@ -34,6 +34,11 @@
   margin-top: 8%;
 }
 
+.projects-remaining{
+  display: flex;
+  flex-direction: row;
+}
+
 .projects-up,
 .projects-down {
   display: flex;

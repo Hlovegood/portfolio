@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import "./Projects.css";
 import DotGrid from "../animation/DotGrid ";
@@ -6,118 +6,109 @@ import Nav from "../components/nav";
 import Container from "../common/CategoryCont";
 import Pill from "../common/Pill";
 import ProjectHolder from "../common/ProjectHolder";
-import Mockup1 from "../assets/Mockups/Edita Website.png";
-import Mockup2 from "../assets/Mockups/Nickelodeon Website.png";
-import Mockup3 from "../assets/Mockups/Car Parts Website.png";
-import Mockup4 from "../assets/Mockups/E-Commerce Website.png";
-import Mockup5 from "../assets/Mockups/E-Sports Website.png";
-import Mockup6 from "../assets/Mockups/Real Estate Firm Website.png";
-import Mockup7 from "../assets/Photography/Photo1.JPG";
-import Mockup8 from "../assets/Photography/Photo2.JPG";
-import Mockup9 from "../assets/Photography/Photo3.JPG";
-import Mockup10 from "../assets/Mockups/Game AR.png";
 import Footer from "../components/footer";
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { supabase } from "../supabase";
 
 const Projects = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const params = new URLSearchParams(location.search);
-  const category = params.get('category') || (location.state && location.state.category);
+  const categoryParam = params.get('category') || (location.state && location.state.category);
 
-  const projects = [
-    {
-      ProjectIMG: Mockup1,
-      ProjectTitle: "Egyptian Food Brand Website",
-      ProjectDate: "2023",
-      ProjectCatg1: "Code",
-      ProjectCatg2: "Design",
-      Project: "egyptian-food",  
-      ProjectCategory: 'UX/UI'
-    },
-    {
-      ProjectIMG: Mockup2,
-      ProjectDate: "2024",
-      ProjectCatg1: "Code",
-      ProjectCatg2: "Design",
-      ProjectTitle: "TV Channel Website",
-      Project: "tv-channel",  
-      ProjectCategory: 'UX/UI'
-    },
-    {
-      ProjectIMG: Mockup3,
-      ProjectDate: "2022",
-      ProjectCatg1: "Code",
-      ProjectCatg2: "Design",
-      ProjectTitle: "Car Parts Website",
-      Project: "car-parts",  
-      ProjectCategory: 'UX/UI'
-    },
-    {
-      ProjectIMG: Mockup4,
-      ProjectDate: "2024",
-      ProjectCatg1: "Code",
-      ProjectCatg2: "Design",
-      ProjectTitle: "E-Commerce Website",
-      Project: "e-commerce",  
-      ProjectCategory: 'UX/UI'
-    },
-    {
-      ProjectIMG: Mockup5,
-      ProjectDate: "2022",
-      ProjectCatg1: "Code",
-      ProjectCatg2: "Design",
-      ProjectTitle: "E-Sports Website",
-      Project: "e-sports",  
-      ProjectCategory: 'UX/UI'
-    },
-    {
-      ProjectIMG: Mockup6,
-      ProjectDate: "2025",
-      ProjectCatg1: "Code",
-      ProjectCatg2: "Design",
-      ProjectTitle: "Real Estate Website",
-      Project: "real-estate",  
-      ProjectCategory: 'UX/UI'
-    },
-    {
-      ProjectIMG: Mockup7,
-      ProjectDate: "2022",
-      ProjectCatg2: "Photo",
-      ProjectTitle: "High Shutter Speed",
-      Project: "high-shutter-speed", 
-      ProjectCategory: 'Photography'
-    },
-    {
-      ProjectIMG: Mockup8,
-      ProjectDate: "2022",
-      ProjectCatg2: "Photo",
-      ProjectTitle: "Night Shot",
-      Project: "night-shot", 
-      ProjectCategory: 'Photography'
-    },
-    {
-      ProjectIMG: Mockup9,
-      ProjectDate: "2022",
-      ProjectCatg2: "Photo",
-      ProjectTitle: "Stop Motion",
-      Project: "stop-motion", 
-      ProjectCategory: 'Photography'
-    },
-    {
-      ProjectIMG: Mockup10,
-      ProjectDate: "2023",
-      ProjectCatg1: "AR",
-      ProjectTitle: "AR Game",
-      Project: "game-ar", 
-      ProjectCategory: 'Augmented Reality'
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  
+  useEffect(() => {
+    if (!categoryParam) {
+      navigate('/projects?category=UX/UI', { replace: true });
     }
-  ];
+  }, [categoryParam, navigate]);
 
-  const filtered = projects.filter(p => !category || (p.ProjectCategory && p.ProjectCategory.toLowerCase() === category.toLowerCase()));
+  useEffect(() => {
+    async function fetchProjects() {
+      try {
+        setLoading(true);
+
+        const { data, error } = await supabase
+          .from("Project Details")
+          .select("*");
+
+        if (error) throw error;
+
+        setProjects(data);
+        console.log('Fetched projects:', data);
+      } catch (err) {
+        console.error('Error fetching projects:', err);
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchProjects();
+  }, []);
+
+
+  const filtered = categoryParam
+    ? projects.filter(p => {
+        const projectCategory = ( p.ProjectCategory || '').toString().trim();
+        const paramCategory = categoryParam.toString().trim();
+        console.log(`Comparing: "${projectCategory.toLowerCase()}" === "${paramCategory.toLowerCase()}"`);
+        return projectCategory.toLowerCase() === paramCategory.toLowerCase();
+      })
+    : [];
 
   const firstRow = filtered.slice(0, 3);
   const secondRow = filtered.slice(3, 6);
   const remainingProjects = filtered.slice(6);
+
+  const displayCategory = categoryParam || "UX/UI";
+  
+  console.log('Category Param:', categoryParam);
+  console.log('Filtered Projects Count:', filtered.length);
+  console.log('Filtered Projects:', filtered);
+  console.log('All Projects:', projects);
+
+  if (loading) {
+    return (
+      <>
+        <Helmet>
+          <title>Projects</title>
+          <meta
+            name="description"
+            content="This is the page for each projects category"
+          />
+          <meta property="og:title" content="Projects" />
+        </Helmet>
+        <Nav />
+        <div style={{ textAlign: "center", padding: "100px 20px" }}>
+          <p>Loading projects...</p>
+        </div>
+      </>
+    );
+  }
+
+  if (error) {
+    return (
+      <>
+        <Helmet>
+          <title>Projects</title>
+          <meta
+            name="description"
+            content="This is the page for each projects category"
+          />
+          <meta property="og:title" content="Projects" />
+        </Helmet>
+        <Nav />
+        <div style={{ textAlign: "center", padding: "100px 20px" }}>
+          <p>Error loading projects: {error}</p>
+        </div>
+      </>
+    );
+  }
 
   return (
     <>
@@ -161,7 +152,7 @@ const Projects = () => {
         <main>
           <div className="category-holder">
             <Container
-              title={category ? category : "UX|UI Design"}
+              title={displayCategory}
               Subtitle={
                 "Welcome to my UX/UI Design section — where creativity meets functionality. Here, I showcase user-centered designs that combine aesthetic appeal with seamless digital experiences."
               }
@@ -176,13 +167,12 @@ const Projects = () => {
             <div className="projects-up">
               {firstRow.map((p) => (
                 <ProjectHolder
-                  key={p.Project}
-                  ProjectIMG={p.ProjectIMG}
-                  ProjectTitle={p.ProjectTitle}
-                  ProjectDate={p.ProjectDate}
-                  ProjectCatg1={p.ProjectCatg1}
-                  ProjectCatg2={p.ProjectCatg2}
-                  Project={p.Project}
+                  key={p.slug}
+                  ProjectIMG={p.CoverImg}
+                  ProjectTitle={p.Title}
+                  ProjectDate={p.Year}
+                  ProjectCatg2={p.Apps}
+                  Project={p.slug}
                 />
               ))}
             </div>
@@ -190,29 +180,27 @@ const Projects = () => {
             <div className="projects-down">
               {secondRow.map((p) => (
                 <ProjectHolder
-                  key={p.Project}
-                  ProjectIMG={p.ProjectIMG}
-                  ProjectTitle={p.ProjectTitle}
-                  ProjectDate={p.ProjectDate}
-                  ProjectCatg1={p.ProjectCatg1}
-                  ProjectCatg2={p.ProjectCatg2}
-                  Project={p.Project}
+                  key={p.slug}
+                  ProjectIMG={p.CoverImg}
+                  ProjectTitle={p.Title}
+                  ProjectDate={p.Year}
+                  ProjectCatg2={p.Apps}
+                  Project={p.slug}
                 />
               ))}
             </div>
 
-            {/* Render any remaining projects */}
+            
             {remainingProjects.length > 0 && (
-              <div className="projects-remaining">
+              <div className="projects-down">
                 {remainingProjects.map((p) => (
                   <ProjectHolder
-                    key={p.Project}
-                    ProjectIMG={p.ProjectIMG}
-                    ProjectTitle={p.ProjectTitle}
-                    ProjectDate={p.ProjectDate}
-                    ProjectCatg1={p.ProjectCatg1}
-                    ProjectCatg2={p.ProjectCatg2}
-                    Project={p.Project}
+                    key={p.slug}
+                    ProjectIMG={p.CoverImg}
+                    ProjectTitle={p.Title}
+                    ProjectDate={p.Year}
+                    ProjectCatg2={p.Apps}
+                    Project={p.slug}
                   />
                 ))}
               </div>

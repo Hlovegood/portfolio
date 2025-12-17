@@ -19,7 +19,7 @@ const CaseStudyCont = ({ projectId }) => {
             try {
                 setLoading(true);
                 
-                // Fetch specific project by slug (URL-friendly identifier)
+                
                 const { data, error } = await supabase
                     .from("Project Details")
                     .select("*")
@@ -55,7 +55,7 @@ const CaseStudyCont = ({ projectId }) => {
         return <div className="CaseStudy"><p>Project not found.</p></div>;
     }
 
-    // Build gallery array from Img_1, Img_2, Img_3
+    
     const gallery = [detail.Img_1, detail.Img_2, detail.Img_3].filter(Boolean);
 
     return (
@@ -179,7 +179,7 @@ const CaseStudyCont = ({ projectId }) => {
                 </article>
             </section>
 
-            {/* Modal overlay for enlarged gallery image */}
+            
             {modalImg && (
                 <div className="gallery-modal" onClick={closeModal}>
                     <button className="gallery-modal-close" onClick={closeModal}>×</button>

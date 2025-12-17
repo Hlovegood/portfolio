@@ -15,9 +15,6 @@ const ProjectHolder = (props) => {
                             {props.ProjectDate}
                         </time>
                         <div className="category-container">
-                            <span className="category">
-                                {props.ProjectCatg1}
-                            </span>
 
                             <span className="category">
                                 {props.ProjectCatg2}
