@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import HeroImg from "../assets/Header-Logo.png";
 import "./About.css";
 import Nav from "../components/nav";
 import DotGrid from "../animation/DotGrid ";
@@ -139,22 +138,35 @@ const About = () => {
                 </div>
               </section>
 
-              <section className="education-section">
-                <h2 className="section-heading">Education</h2>
-                <div className="education-content">
-                  <h3 className="university">{Detail.University}</h3>
-                  <p className="faculty">{Detail.Faculty}</p>
-                  <p className="major">{Detail.Major}</p>
-                </div>
-              </section>
+                  
+             {/* Education Section */}
+{Skills.find(skill => skill.Uni || skill.Faculty || skill.Major) && (
+  <section className="education-section">
+    <h2 className="section-heading">Education</h2>
+    <div className="education-content">
+      {Skills.find(skill => skill.Uni)?.Uni && (
+        <h3 className="university">{Skills.find(skill => skill.Uni).Uni}</h3>
+      )}
+      {Skills.find(skill => skill.Faculty)?.Faculty && (
+        <p className="faculty">{Skills.find(skill => skill.Faculty).Faculty}</p>
+      )}
+      {Skills.find(skill => skill.Major)?.Major && (
+        <p className="major">{Skills.find(skill => skill.Major).Major}</p>
+      )}
+    </div>
+  </section>
+)}
 
-              <section className="philosophy-section">
-                <h2 className="section-heading">Design Philosophy</h2>
-                <div className="philosophy-content">
-                  <p>{Detail.Philosophy_1}</p>
-                  <p>{Detail.Philosophy_2}</p>
-                </div>
-              </section>
+{/* Philosophy Section */}
+{Skills.find(skill => skill.Philosophy)?.Philosophy && (
+  <section className="philosophy-section">
+    <h2 className="section-heading">Design Philosophy</h2>
+    <div className="philosophy-content">
+      <p>{Skills.find(skill => skill.Philosophy).Philosophy}</p>
+    </div>
+  </section>
+)}
+
             </main>
           ))}
         </div>
