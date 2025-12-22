@@ -73,12 +73,12 @@ const Home = () => {
             dotSize={5}
             gap={15}
             baseColor="#3b2b0269"
-            activeColor="#ffffffff"
+            activeColor="#fc5a1aff"
             proximity={80}
             shockRadius={150}
             shockStrength={5}
             resistance={150}
-            returnDuration={2.5}
+            returnDuration={1.5}
           />
         </div>
 
@@ -112,9 +112,8 @@ const Home = () => {
                   <iframe
                     width="560"
                     height="315"
-                    src={"https://youtu.be/VrLXMjj0ybU?si=QR4CZT6_38tTAtaU"}
+                    src={Detail.ShowReel}
                     title="YouTube video player"
-                    frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen

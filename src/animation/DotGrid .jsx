@@ -20,7 +20,7 @@ const throttle = (func, limit) => {
 
 function hexToRgb(hex) {
   const m = hex.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
-  if (!m) return { r: 0, g: 0, b: 0 };
+  if (!m) return { r: 236, g: 114, b: 0 };
   return {
     r: parseInt(m[1], 16),
     g: parseInt(m[2], 16),
@@ -31,8 +31,8 @@ function hexToRgb(hex) {
 const DotGrid = ({
   dotSize = 16,
   gap = 32,
-  baseColor = '#5227FF',
-  activeColor = '#5227FF',
+  baseColor = 'rgba(236, 114, 0, 1)',
+  activeColor = '#ff2727ff',
   proximity = 150,
   speedTrigger = 100,
   shockRadius = 250,

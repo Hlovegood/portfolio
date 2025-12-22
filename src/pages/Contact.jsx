@@ -6,6 +6,10 @@ import DotGrid from '../animation/DotGrid ';
 import { supabase } from '../supabase';
 
 const Contact = () => {
+  const [name,setName]= useState("");
+  const [email,setEmail]= useState("");
+  const [subject,setSubject]= useState("");
+  const [message,setMessage]= useState("");
   const [contactLinks, setContactLinks] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -24,6 +28,10 @@ const Contact = () => {
   }, []);
 
   if (loading) return <p>Loading...</p>;
+
+  async function sendName(){
+    const res = await supabase.from("Contact").insert({"Name":name, "Subject":subject, "Email":email, "Message":message}) 
+  }
 
   return (
     <>
@@ -75,22 +83,22 @@ const Contact = () => {
                 <form className="contact-form">
                   <div className="form-group">
                     <label htmlFor="name">Your Name</label>
-                    <input type="text" id="name" placeholder="John Doe"/>
+                    <input onChange={(i)=>{setName(i.target.value)}} type="text" id="name" placeholder="John Doe"/>
                   </div>
                   <div className="form-group">
                     <label htmlFor="email">Email Address</label>
-                    <input type="email" id="email" placeholder="john@example.com"/>
+                    <input onChange={(i)=>{setEmail(i.target.value)}} type="email" id="email" placeholder="john@example.com"/>
                   </div>
                   <div className="form-group">
                     <label htmlFor="subject">Subject</label>
-                    <input type="text" id="subject" placeholder="Project Inquiry"/>
+                    <input onChange={(i)=>{setSubject(i.target.value)}} type="text" id="subject" placeholder="Project Inquiry"/>
                   </div>
                   <div className="form-group">
                     <label htmlFor="message">Message</label>
-                    <textarea id="message" placeholder="Tell me about your project..."></textarea>
+                    <textarea onChange={(i)=>{setMessage(i.target.value)}} id="message" placeholder="Tell me about your project..."></textarea>
                   </div>
-                  <button type="submit" className="submit-btn">Send Message</button>
                 </form>
+                  <button onClick={sendName} className="submit-btn">Send Message</button>
               </section>
 
               <aside className="contact-info">
