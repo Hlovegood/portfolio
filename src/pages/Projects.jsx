@@ -61,16 +61,19 @@ const Projects = () => {
       })
     : [];
 
-  const firstRow = filtered.slice(0, 3);
-  const secondRow = filtered.slice(3, 6);
-  const remainingProjects = filtered.slice(6);
-
   const displayCategory = categoryParam || "UX/UI";
+  
+  // Split projects into rows of 3
+  const projectRows = [];
+  for (let i = 0; i < filtered.length; i += 3) {
+    projectRows.push(filtered.slice(i, i + 3));
+  }
   
   console.log('Category Param:', categoryParam);
   console.log('Filtered Projects Count:', filtered.length);
   console.log('Filtered Projects:', filtered);
   console.log('All Projects:', projects);
+  console.log('Project Rows:', projectRows);
 
   if (loading) {
     return (
@@ -164,36 +167,9 @@ const Projects = () => {
           </div>
 
           <div className="Projects-Holder">
-            <div className="projects-up">
-              {firstRow.map((p) => (
-                <ProjectHolder
-                  key={p.slug}
-                  ProjectIMG={p.CoverImg}
-                  ProjectTitle={p.Title}
-                  ProjectDate={p.Year}
-                  ProjectCatg2={p.Apps}
-                  Project={p.slug}
-                />
-              ))}
-            </div>
-
-            <div className="projects-down">
-              {secondRow.map((p) => (
-                <ProjectHolder
-                  key={p.slug}
-                  ProjectIMG={p.CoverImg}
-                  ProjectTitle={p.Title}
-                  ProjectDate={p.Year}
-                  ProjectCatg2={p.Apps}
-                  Project={p.slug}
-                />
-              ))}
-            </div>
-
-            
-            {remainingProjects.length > 0 && (
-              <div className="projects-down">
-                {remainingProjects.map((p) => (
+            {projectRows.map((row, rowIndex) => (
+              <div key={rowIndex} className="projects-row">
+                {row.map((p) => (
                   <ProjectHolder
                     key={p.slug}
                     ProjectIMG={p.CoverImg}
@@ -204,7 +180,7 @@ const Projects = () => {
                   />
                 ))}
               </div>
-            )}
+            ))}
           </div>
 
           <Footer />

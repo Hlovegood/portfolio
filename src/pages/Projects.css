@@ -34,9 +34,22 @@
   margin-top: 8%;
 }
 
-.projects-remaining{
+.Projects-Holder {
   display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8%;
+}
+
+.projects-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
   flex-direction: row;
+  margin-bottom: 16px;
 }
 
 .projects-up,
@@ -62,6 +75,7 @@
 
   .projects-up,
   .projects-down,
+  .projects-row,
   .EXP-holder {
     flex-direction: column !important;
     align-items: center !important;
